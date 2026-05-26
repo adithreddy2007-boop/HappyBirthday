@@ -293,7 +293,7 @@ audio { display: none; }
   position: absolute;
   width: 100%;
   height: 2px;
-  left: -4px;
+  left: -4px !important;
 }
 .cake .velas::after  { top: 25%; }
 .cake .velas::before { top: 45%; }
@@ -303,7 +303,7 @@ audio { display: none; }
   animation: candleDrop 0.85s cubic-bezier(0.22, 1.36, 0.58, 1) forwards;
 }
 @keyframes candleDrop {
-  from { top: -120px; }
+  from { top: -150px; }
   72%  { top: 390px; }
   86%  { top: 368px; }
   to   { top: 400px; }
