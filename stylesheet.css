@@ -293,7 +293,7 @@ audio { display: none; }
   position: absolute;
   width: 100%;
   height: 2px;
-  left: -3px !important;
+  left: -2px !important;
 }
 .cake .velas::after  { top: 25%; }
 .cake .velas::before { top: 45%; }
