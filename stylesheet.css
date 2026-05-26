@@ -229,19 +229,26 @@ audio { display: none; }
    Move cake LEFT/RIGHT → .cake-wrapper{ margin-left }          */
 /* ─── CAKE SECTION ───────────────────────── */
 
+/* CAKE POSITION */
 .cake-cover{
-    margin-top: -60px !important;   /* move cake slightly above button */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:-40px !important;
 }
 
 .cake-wrapper{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 0 !important;      /* remove side shift */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-left:0 !important;
+    width:100%;
+}
+
+/* SVG */
+#cake-svg{
+    display:block;
+    margin:auto;
 }
 
 /* Suppress legacy CSS cake shapes — SVG handles all visuals */
