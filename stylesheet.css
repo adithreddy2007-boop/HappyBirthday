@@ -279,7 +279,7 @@ audio { display: none; }
   background: #ffffff;
   border-radius: 10px;
   position: absolute;
-  top: 260px;
+  top: 260px !important;
   left: 50%;
   margin-left: -2.5px;
   width: 5px;
@@ -294,7 +294,7 @@ audio { display: none; }
   position: absolute;
   width: 100%;
   height: 2px;
-  left: 0px !important;
+  left: 0px;
 }
 .cake .velas::after  { top: 25%; }
 .cake .velas::before { top: 45%; }
