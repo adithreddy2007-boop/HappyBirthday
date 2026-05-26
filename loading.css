@@ -1,0 +1,214 @@
+html { background: #000000; }
+
+/* Absolute Center CSS Spinner */
+.loading {
+  position: fixed;
+  z-index: 99999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: #040404;
+}
+.loading:not(:required) {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em; height: 1em;
+  margin-top: -0.5em;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  box-shadow: #FFF 1.5em 0 0 0, rgba(0,0,0,0.75) 1.1em 1.1em 0 0,
+    rgba(0,0,0,0.75) 0 1.5em 0 0, #FFF -1.1em 1.1em 0 0,
+    rgba(0,0,0,0.5) -1.5em 0 0 0, rgba(0,0,0,0.5) -1.1em -1.1em 0 0,
+    rgba(0,0,0,0.75) 0 -1.5em 0 0, rgba(0,0,0,0.75) 1.1em -1.1em 0 0;
+}
+@keyframes spinner {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ══════════════════════════════════════════════
+   PASSCODE PAGE
+══════════════════════════════════════════════ */
+#passcode-page {
+  position: fixed; inset: 0;
+  background: radial-gradient(circle at center, #2c2c2c 0%, #1a1a1a 40%, #0d0d0d 75%, #000000 100%);
+  z-index: 99990;
+  display: flex; align-items: stretch;
+}
+
+/* ── LEFT HALF: gif ── */
+.passcode-photo-half {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.passcode-gif {
+  max-width: 90%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* ── RIGHT HALF: numpad ── */
+#passcode-page .numpad-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* ── RIGHT: numpad ── */
+.numpad-side {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 14px;
+}
+.lock-icon {
+  font-size: 32px;
+  filter: drop-shadow(0 0 10px rgba(255,100,100,0.5));
+}
+.passcode-label {
+  font-family: 'Signika', sans-serif;
+  font-size: 11px; letter-spacing: 3px;
+  color: rgba(245,210,215,0.8); margin: 0;
+}
+
+/* 8 dots */
+.passcode-dots { display: flex; gap: 10px; }
+.dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(44, 43, 45, 0.5);
+  background: transparent;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.dot.filled {
+  background: #7a797c;
+  border-color: #2d2d2f;
+  box-shadow: 0 0 10px rgba(87, 87, 87, 0.9);
+}
+
+.passcode-hint {
+  font-family: 'Signika', sans-serif;
+  font-size: 12px; color: #555063;
+  margin: 0; min-height: 18px;
+}
+
+/* Grid: 3 columns, 4 rows — all cells perfectly square */
+.numpad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 62px);
+  grid-template-rows: repeat(4, 62px);
+  gap: 10px;
+}
+
+/* Every button: exact same width & height → perfect circle */
+.np-btn {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: none;
+  color: #fff;
+  font-family: 'Signika', sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  transition: filter 0.15s, transform 0.1s;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.45);
+  display: flex; align-items: center; justify-content: center;
+  line-height: 1;
+  font-weight: 700;
+}
+.np-btn:hover:not(:disabled) { filter: brightness(1.25); transform: scale(1.09); }
+.np-btn:active:not(:disabled) { transform: scale(0.92); }
+
+/* All 10 digits — same color */
+.np-btn[data-n="1"],
+.np-btn[data-n="2"],
+.np-btn[data-n="3"],
+.np-btn[data-n="4"],
+.np-btn[data-n="5"],
+.np-btn[data-n="6"],
+.np-btn[data-n="7"],
+.np-btn[data-n="8"],
+.np-btn[data-n="9"],
+.np-btn[data-n="0"] { background: #4c4c60; }
+
+/* C and ⌫ — darker than the number buttons */
+.np-btn.np-clear,
+.np-btn.np-del {
+  background:#1e1e24;
+  font-size: 18px;
+  font-weight: 700;
+}
+.np-btn.np-clear:hover,
+.np-btn.np-del:hover {
+  background: #1a1a20;
+}
+
+/* shake animation on wrong code */
+@keyframes shakeCode {
+  0%,100% { transform: translateX(0); }
+  20% { transform: translateX(-9px); }
+  40% { transform: translateX(9px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+.shake { animation: shakeCode 0.45s ease; }
+
+/* ══════════════════════════════════════════════
+   BLACK INTRO SCREEN
+   Pure black full-screen with Turn On button in bottom navbar
+══════════════════════════════════════════════ */
+#intro-screen {
+  position: fixed; inset: 0;
+  background: #000000;
+  z-index: 99980;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  #passcode-page {
+    flex-direction: column;
+  }
+  .passcode-photo-half {
+    flex: none;
+    padding: 24px 0 0;
+  }
+  #passcode-page .numpad-side {
+    flex: 1;
+    border-left: none;
+    border-top: 1px solid rgba(255, 80, 80, 0.12);
+    padding: 20px 0;
+  }
+  .polaroid-frame img { width: 140px; height: 170px; }
+  .numpad-grid {
+    grid-template-columns: repeat(3, 56px);
+    grid-template-rows: repeat(4, 56px);
+    gap: 8px;
+  }
+  .np-btn { width: 56px; height: 56px; font-size: 18px; }
+  .passcode-dots { gap: 8px; }
+  .dot { width: 12px; height: 12px; }
+}
