@@ -227,13 +227,21 @@ audio { display: none; }
 /* ── CAKE SECTION ───────────────────────────────────────────────
    Move cake UP/DOWN    → .cake-cover  { margin-top }
    Move cake LEFT/RIGHT → .cake-wrapper{ margin-left }          */
-.cake-cover {
-  margin-top: -130px !important;
+/* ─── CAKE SECTION ───────────────────────── */
+
+.cake-cover{
+    margin-top: -60px !important;   /* move cake slightly above button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.cake-wrapper {
-  display: inline-block;
-  position: relative;
-  margin-left: 100px ;
+
+.cake-wrapper{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0 !important;      /* remove side shift */
 }
 
 /* Suppress legacy CSS cake shapes — SVG handles all visuals */
