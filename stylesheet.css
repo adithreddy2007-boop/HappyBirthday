@@ -249,6 +249,7 @@ audio { display: none; }
 #cake-svg{
     display:block;
     margin:auto;
+   transform: translateY(-80px);
 }
 
 /* Suppress legacy CSS cake shapes — SVG handles all visuals */
@@ -293,7 +294,7 @@ audio { display: none; }
   position: absolute;
   width: 100%;
   height: 2px;
-  left: -2px !important;
+  left: 0px !important;
 }
 .cake .velas::after  { top: 25%; }
 .cake .velas::before { top: 45%; }
