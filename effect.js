@@ -251,7 +251,7 @@ $('document').ready(function () {
 
     var offsets  = [-390,-290,-190,-90,10,110,210,310];
     /* Use bottom so all balloons sit on the same baseline — straight line */
-    var targetBottom = 355;
+    var targetBottom = 305;
     ['b11','b22','b33','b44','b55','b66','b77','b88'].forEach(function(id, i){
       $('#'+id).css('position', 'fixed').animate({ bottom: targetBottom, top: 'auto', left: vw + offsets[i] }, 600);
     });
