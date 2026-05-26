@@ -8,7 +8,7 @@ $(window).load(function () {
   });
 
   /* ── PASSCODE GATE ── */
-  var CORRECT_PASSCODE = '27052007'; // ← change this to your 8-digit code
+  var CORRECT_PASSCODE = '88888888'; // ← change this to your 8-digit code
   var enteredCode = '';
 
   $(document).on('click', '.np-btn[data-n]', function () {
