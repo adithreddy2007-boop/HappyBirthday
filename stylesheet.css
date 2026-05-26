@@ -228,12 +228,12 @@ audio { display: none; }
    Move cake UP/DOWN    → .cake-cover  { margin-top }
    Move cake LEFT/RIGHT → .cake-wrapper{ margin-left }          */
 .cake-cover {
-  margin-top: -75px !important;
+  margin-top: -80px !important;
 }
 .cake-wrapper {
   display: inline-block;
   position: relative;
-  margin-left: 0px ;
+  margin-left: 100px ;
 }
 
 /* Suppress legacy CSS cake shapes — SVG handles all visuals */
