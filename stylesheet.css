@@ -254,7 +254,7 @@ audio { display: none; }
 
 /* Suppress legacy CSS cake shapes — SVG handles all visuals */
 .cake {
-  display: none;
+  display: block;
   position: relative;
   width: 200px !important;
   height: 500px !important;
@@ -279,7 +279,7 @@ audio { display: none; }
   background: #ffffff;
   border-radius: 10px;
   position: absolute;
-  top: 300px;
+  top: 260px;
   left: 50%;
   margin-left: -2.5px;
   width: 5px;
