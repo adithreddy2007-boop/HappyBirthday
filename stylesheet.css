@@ -227,34 +227,18 @@ audio { display: none; }
 /* ── CAKE SECTION ───────────────────────────────────────────────
    Move cake UP/DOWN    → .cake-cover  { margin-top }
    Move cake LEFT/RIGHT → .cake-wrapper{ margin-left }          */
-/* ─── CAKE SECTION ───────────────────────── */
-
-/* CAKE POSITION */
-.cake-cover{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-top:-40px !important;
+.cake-cover {
+  margin-top: -75px !important;
 }
-
-.cake-wrapper{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-left:0 !important;
-    width:100%;
-}
-
-/* SVG */
-#cake-svg{
-    display:block;
-    margin:auto;
-   transform: translateY(-80px);
+.cake-wrapper {
+  display: inline-block;
+  position: relative;
+  margin-left: 100px ;
 }
 
 /* Suppress legacy CSS cake shapes — SVG handles all visuals */
 .cake {
-  display: block;
+  display: none;
   position: relative;
   width: 200px !important;
   height: 500px !important;
@@ -279,7 +263,7 @@ audio { display: none; }
   background: #ffffff;
   border-radius: 10px;
   position: absolute;
-  top: 260px !important;
+  top: -120px;
   left: 50%;
   margin-left: -2.5px;
   width: 5px;
@@ -292,9 +276,7 @@ audio { display: none; }
   background: rgba(255,0,0,0.45);
   content: "";
   position: absolute;
-  width: 100%;
-  height: 2px;
-  left: 0px;
+  width: 100%; height: 2px;
 }
 .cake .velas::after  { top: 25%; }
 .cake .velas::before { top: 45%; }
@@ -304,7 +286,7 @@ audio { display: none; }
   animation: candleDrop 0.85s cubic-bezier(0.22, 1.36, 0.58, 1) forwards;
 }
 @keyframes candleDrop {
-  from { top: 350px; }
+  from { top: -120px; }
   72%  { top: 390px; }
   86%  { top: 368px; }
   to   { top: 400px; }
